@@ -1,6 +1,5 @@
 ﻿using ICities;
 using UnityEngine;
-using MadridTrafficLights.Utils;
 using ColossalFramework;
 
 namespace MadridTrafficLights
@@ -100,114 +99,57 @@ namespace MadridTrafficLights
                 return;
             }
 
-            var Mb = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid TrafficLights M blink_Data");
+            var Mb = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights M blink_Data");
             
-            var P_L = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid TrafficLights P Left_Data");
-            var P_R = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid TrafficLights P Right_Data");
+            var P_L = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights P Left_Data");
+            var P_R = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights P Right_Data");
             
-            var MSP_L = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid Traffic Lights - MSP Left_Data");
-            var MSP_R = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid Traffic Lights - MSP Righ_Data");
+            var MSP_L = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid Traffic Lights - MSP Left_Data");
+            var MSP_R = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid Traffic Lights - MSP Righ_Data");
 
-            var LMSP_L = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid TrafficLights LMSP Left_Data");
-            var LMSP_R = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid TrafficLights LMSP Right_Data");
+            var LMSP_L = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights LMSP Left_Data");
+            var LMSP_R = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights LMSP Right_Data");
 
-            var dLMSP_L = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid TrafficLights dLMSP Left_Data");
-            var dLMSP_R = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid TrafficLights dLMSP Right_Data");
-            var xLMSP_L = PrefabCollection<PropInfo>.FindLoaded("2270587845.MMadrid TrafficLights xLMSP Left_Data");
-            var xLMSP_R = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid TrafficLights xLMSP Right_Data");
+            var dLMSP_L = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights dLMSP Left_Data");
+            var dLMSP_R = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights dLMSP Right_Data");
+            var xLMSP_L = PrefabCollection<PropInfo>.FindLoaded("2274749251.MMadrid TrafficLights xLMSP Left_Data");
+            var xLMSP_R = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights xLMSP Right_Data");
 
-            //var MS_L = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid TrafficLights MS Left_Data");
-            //var MS_R = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid TrafficLights MS Right_Data");
-            //var LMS_L = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid TrafficLights LMS Left_Data");
-            //var LMS_R = PrefabCollection<PropInfo>.FindLoaded("2270587845.Madrid TrafficLights LMS Right_Data");
+            //var MS_L = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights MS Left_Data");
+            //var MS_R = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights MS Right_Data");
+            //
+            //var LMS_L = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights LMS Left_Data");
+            //var LMS_R = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights LMS Right_Data");
+            //
+            //var xLMS_L = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights xLMS Left_Data");
+            //var xLMS_R = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights xLMS Right_Data");
+            //var dLMS_L = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights dLMS Left_Data");
+            //var dLMS_R = PrefabCollection<PropInfo>.FindLoaded("2274749251.Madrid TrafficLights dLMS Right_Data");
 
             if (
                 //MS_L == null ||
                 //MS_R == null ||
                 //LMS_L == null ||
                 //LMS_R == null ||
+                //xLMS_L == null ||
+                //xLMS_R == null ||
+                //dLMS_R == null ||
+                //dLMS_R == null ||
                 Mb == null ||
                 P_L == null ||
                 P_R == null ||
                 MSP_L == null ||
                 MSP_R == null ||
                 LMSP_L == null ||
-                LMSP_R == null
+                LMSP_R == null ||
+                xLMSP_L == null ||
+                xLMSP_R == null ||
+                dLMSP_L == null ||
+                dLMSP_R == null
                 )
             {
                 return;
             }
-
-            //int nProps = 0;
-            //// loop through all segments
-            //for (ushort segmentID = 0; segmentID < NetManager.MAX_SEGMENT_COUNT; ++segmentID)
-            //{
-            //    NetSegment segment = segmentID.ToSegment();
-            //
-            //    if (!segment.Info)
-            //        continue;
-            //
-            //    // loop through both nodes of each segment
-            //    foreach (bool bStartNode in new bool[] { false, true })
-            //    {
-            //        // if the segment+node section has crossing ban
-            //        if (TMPEUTILS.HasCrossingBan(segmentID, bStartNode))
-            //        {
-            //            ushort nodeID = bStartNode ? segment.m_startNode : segment.m_endNode;
-            //
-            //            foreach (var node in segment.Info.m_nodes)
-            //            {
-            //                if (node.m_directConnect)
-            //                    continue;
-            //                var flags = nodeID.ToNode().m_flags;
-            //
-            //                if (nodeID.ToNode().m_flags.IsFlagSet(NetNode.Flags.Junction))
-            //                {
-            //                    // clone road info and change name
-            //                    var road = segment.Info;
-            //                    var newRoad = NetInfo.Instantiate(road);
-            //                    newRoad.name += "_noCrossMadrid";
-            //
-            //                    foreach (var lane in newRoad.m_lanes)
-            //                    {
-            //                        if (lane?.m_laneProps?.m_props == null)
-            //                        {
-            //                            continue;
-            //                        }
-            //
-            //                        foreach (var laneProp in lane.m_laneProps.m_props)
-            //                        {
-            //                            var prop = laneProp.m_finalProp;
-            //                            if (prop == null)
-            //                            {
-            //                                continue;
-            //                            }
-            //                            var name = prop.name;
-            //
-            //                            if (name == "Traffic Light European 01" || name == "Traffic Light 01")
-            //                            {
-            //                                laneProp.m_finalProp = MS_L;
-            //                                laneProp.m_prop = MS_L;
-            //                            }
-            //                        }
-            //                    }
-            //
-            //                    //set segment road as new road
-            //                    if (newRoad.GetInstanceID() != road.GetInstanceID())
-            //                    {
-            //
-            //                    }
-            //                }
-            //            }
-            //        } 
-            //        else
-            //        {
-            //            
-            //        }
-            //    }
-            //}
-
-
 
             var roads = Resources.FindObjectsOfTypeAll<NetInfo>();
             foreach (var road in roads)
